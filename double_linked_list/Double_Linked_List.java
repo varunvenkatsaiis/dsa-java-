@@ -11,10 +11,16 @@ public class Double_Linked_List {
         }
     }
     public void add_Node(int data  , int pos ){
+            if(pos == 1){
+                addFirst(data);
+            }
+            else if(pos >= size){
+                add_Last(data);
+            }
+            else{
                 if(head == null){
                     addFirst(data);
                 }
-                else{
                 Node newNode = new Node(data);
                 Node curr = head;
                 int s = 1;
