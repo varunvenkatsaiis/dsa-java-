@@ -68,10 +68,25 @@ public class Double_Linked_List {
     public void PrintList(){
             Node curr = head;
             while(curr.next != null){
-                System.out.print(curr.data +"-->");
+                System.out.print(curr.data +"<-->");
                 curr = curr.next;
             }
-        System.out.print(curr.data +"-->");
+        System.out.print(curr.data +"<-->");
+    }
+    public void Reverse(){
+        Node temp = null;
+        Node curr = head;
+        while(curr.next != null){
+            temp = curr.prev;
+            curr.prev = curr.next;
+            curr.next = temp;
+
+            curr = curr.prev;
+        }
+        temp = curr.prev;
+        curr.next = temp;
+        curr.prev = null;
+        head = curr;
 
     }
     public static void main(String[] args) {
@@ -81,6 +96,7 @@ public class Double_Linked_List {
         lis.add_Last(8);
         lis.add_Last(12);
         lis.add_Node(24,3);
+        lis.Reverse();
         System.out.println("size of a linked list is "+lis.size);
         lis.PrintList();
     }
